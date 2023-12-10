@@ -1,0 +1,96 @@
+<script>
+    var map;
+    var services;
+    var infowindow;
+
+function initialize(){
+        var payrole = new google.maps.latlng(-3333.77, 151.118)
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            Zoom: 15
+        })
+
+        var input = document.getElementById('searchTextField');
+        let autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.binTo('bounds', map);
+
+        var infowindo = new google.maps.Infowindow();
+        var maker = new google.maps.Marker({
+            map: map
+        });
+
+        google.maps.event.addlistner(autocomplete, 'place_changd', () => {
+            let place = autrocomplete.getplace()
+            console.log(place)
+            console.log(place.photos[0].getUrl)
+
+            if(place.geometry.viewport)
+            {
+                map.fitBoinds(place.geometry.viewport) 
+            }
+            else{
+                map.setCenter(place.geometry.location)
+                mao.setZoom(17)
+            }
+            maker.setPositions(place.geometry.location)
+            marker.setVisble(true)
+
+            let request = {
+                location:place.geometry.location,
+                radius: '500',
+                type: ['atm']
+
+            }
+            service = new google.maps.places.placesService(map)
+            service.nearbySearch(request,callback)
+
+        })
+
+    }
+
+    function callback(results, status){
+        if (status == google.maps.places.placesService.OK) {
+            for (let i = 0; i < results.length; i++) {
+                const element = array[i];
+                createMagker(results[i]);    
+            }
+        }
+    }
+
+    function createMarker(place)
+    {
+        var marker = new google.maps.Marker({
+            map:map,
+            positioons: place.geometry.location
+        });  
+
+        google.maps.event.addlistner(marker , 'click' , () =>{
+             alert(place.name);
+            window.open(place.photos[0],getUrl(), "_blank")
+        infowindow.open(maps, this)
+        })
+       
+    }
+
+
+    google.maps.event.addDomlistner(window, "load", initilize);
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="searchTextField" size="">
+    <div id="map" style="height: 400px;"></div>
+</body>
+
+</html>

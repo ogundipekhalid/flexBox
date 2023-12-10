@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../FlexBosx/styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/">
+</head>
+<body>
+    <div class="Wrapper">
+
+        <header class="top">
+            <h1><a href=""> what is flex box</a></h1>
+        </header>
+        <nav class="Flex-nav">
+            <a href="#"class="toggleNav" >:-: Menu </a>
+            <ul>
+                <li><a href="#">item 01</a></li>
+                <li><a href="#">item 02</a></li>
+                <li><a href="#">item 03</a></li>
+                <li><a href="#">item 04</a></li>
+                <!-- <li><a href="#">item 05</a></li> -->
+                <li class="Social" >
+                <a href="http://twitter.com/wesbos"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="Social" >
+                <a href="http://facebook.com/wesbos.developer"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="Social" >
+                <a href="http://github.com/wesbos"><i class="fa fa-github"></i></a>
+                </li>
+                </li>
+                <li class="Social" >
+                <a href="http://instagram.com/wesbos"><i class="fa fa-instagram"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <!-- <img src="http://lorempixel.com/1000/600/abstract" alt=""> -->
+            <img src="../FlexBosx/face-1.png" alt="">
+            
+        </section>
+
+        <section class="details">
+            <p>A simple video to help ypou master Flex Video</p>
+            <p> signup up today to grabe all video and exercises</p>
+        </section>
+
+        <section class="signup">
+           <form action="" class="signup">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email Address">
+            <input  value="signup up now ">
+           </form>
+        </section>
+
+        <footer>
+            <p>$copy; kel Bos</p>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajas/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script>
+        $(function () {
+            $('.toggleNav').on('click',function ()
+             {
+                ('.Flex-nav ul').toggleClass('open');
+                // ('.Flex-nav ul').slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>
